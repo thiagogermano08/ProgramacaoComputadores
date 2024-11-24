@@ -12,24 +12,14 @@
 
 #Dica: conte o número de dias até cada uma das datas e subtraia esses números.
 
-def dias_ate_data(dia, mes):
+dia_inicial = int(input('digite seu dia inicial'))
+mes_inicial = int(input('digite seu mês inicial'))
+dia_final = int(input('digite seu ultimo dia'))
+mes_final  = int(input('digite seu último mês'))
 
-    dias_por_mes = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-    dias_anteriores = sum(dias_por_mes[:mes-1])
-    dias_totais = dias_anteriores + dia
-    return dias_totais
-
-dia_inicial = int(input('Dia inicial: '))
-mes_inicial = int(input('Mês inicial: '))
-dia_final = int(input('Dia final: '))
-mes_final = int(input('Mês final: '))
-
-if (mes_inicial < mes_final) or (mes_inicial == mes_final and dia_inicial <= dia_final):
-    dias_inicial = dias_ate_data (dia_inicial, mes_inicial)
-    dias_final = dias_ate_data (dia_final, mes_final)
-
-    dias_decorridos = dias_final - dias_inicial
-
-    print(f'Quantidade de dias entre as datas: {dias_decorridos} dias')
+if mes_final == mes_inicial:
+    soma_de_dias = dia_final - dia_inicial
 else:
-    print(f'A data inicial deve ser anterior ou igual à data final.')  
+    soma_de_dias = ((mes_final - mes_inicial) * 30) - (dia_final - dia_inicial)
+   
+    print (f'um total de: {soma_de_dias} dias')
